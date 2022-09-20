@@ -4,7 +4,8 @@
 var Customers = [];
 var Person = {
     Name: ' ',
-    Phone: ' '
+    Phone: ' ',
+    Address: ' '
 };
 
 add  = () => {
@@ -13,7 +14,7 @@ NamePerson = document.getElementById("personName");
 PhoneNumber = document.getElementById("phoneNumber");
 Address = document.getElementById("Address");
 
-Person = {Name:NamePerson.value + PhoneNumber.value + Address.value, Phone: '123'};
+Person = {Name:NamePerson.value, Phone: PhoneNumber.value,  Address: Address.value};
 Customers.push(Person);
 
 
@@ -22,7 +23,7 @@ CustomerList.innerHTML='';
 
 Customers.forEach(person => {
     ListDetail = document.createElement('li');
-    ListDetail.innerHTML = person.Name
+    ListDetail.innerHTML = (`Name: ${person.Name} | Phone number: ${person.Phone} | Address: ${person.Address}`)
     CustomerList.appendChild(ListDetail)
 
 });
@@ -31,9 +32,8 @@ Customers.forEach(person => {
 NamePerson.value = '';
 PhoneNumber.value = '';
 Address.value = '';
-NamePerson.focus();
-PhoneNumber.focus();
-Address.focus();
+Name.focus();
+
 
 
 }
