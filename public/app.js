@@ -28,7 +28,7 @@ Customers.forEach(person => {
 
 });
 
-
+//a
 NamePerson.value = '';
 PhoneNumber.value = '';
 Address.value = '';
