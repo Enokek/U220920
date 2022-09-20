@@ -23,7 +23,7 @@ CustomerList.innerHTML='';
 
 Customers.forEach(person => {
     ListDetail = document.createElement('li');
-    ListDetail.innerHTML = (`Name: ${person.Name} | Phone number: ${person.Phone} | Address: ${person.Address}`)
+    ListDetail.innerHTML = (`Name: ${person.Name} |  Phone number: ${person.Phone}`)
     CustomerList.appendChild(ListDetail)
 
 });
@@ -32,8 +32,25 @@ Customers.forEach(person => {
 NamePerson.value = '';
 PhoneNumber.value = '';
 Address.value = '';
-Name.focus();
+NamePerson.focus();
 
 
 
 }
+
+addID = () => {
+    var inputID = document.getElementById("IDinput").value;
+    var outputID = document.getElementById("OutputID");
+
+    inputID -=1;
+    outputID.innerHTML =(JSON.stringify(Customers[inputID]))
+
+    
+
+};
+
+    
+    
+
+
+ 
