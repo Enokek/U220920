@@ -3,9 +3,10 @@
 
 var Customers = [];
 var Person = {
-    Name: ' ',
+    FullName: ' ',
     Phone: ' ',
-    Address: ' '
+    Address: ' ',
+    Email: ' '
 };
 
 add  = () => {
@@ -13,8 +14,9 @@ add  = () => {
 NamePerson = document.getElementById("personName");
 PhoneNumber = document.getElementById("phoneNumber");
 Address = document.getElementById("Address");
+EmailPerson = document.getElementById("Email");
 
-Person = {Name:NamePerson.value, Phone: PhoneNumber.value,  Address: Address.value};
+Person = {FullName: NamePerson.value, Phone: PhoneNumber.value,  Address: Address.value, Email: EmailPerson.value};
 Customers.push(Person);
 
 
@@ -23,7 +25,7 @@ CustomerList.innerHTML='';
 
 Customers.forEach(person => {
     ListDetail = document.createElement('li');
-    ListDetail.innerHTML = (`Name: ${person.Name} |  Phone number: ${person.Phone}`)
+    ListDetail.innerHTML = (`Full name: ${person.FullName} |  Phone number: ${person.Phone} | Email: ${person.Email}`)
     CustomerList.appendChild(ListDetail)
 
 });
@@ -32,6 +34,7 @@ Customers.forEach(person => {
 NamePerson.value = '';
 PhoneNumber.value = '';
 Address.value = '';
+EmailPerson.value = '';
 NamePerson.focus();
 
 
@@ -42,15 +45,20 @@ addID = () => {
     var inputID = document.getElementById("IDinput").value;
     var outputID = document.getElementById("OutputID");
 
-    inputID -=1;
-    outputID.innerHTML =(JSON.stringify(Customers[inputID]))
-
+    function findEmail(pointer) {
+    return pointer.Email === inputID;
+    }
+    
+    outputID.innerHTML = (`${Customers.find(findEmail).FullName} 
+    ${Customers.find(findEmail).Phone} ${Customers.find(findEmail).Address} ${Customers.find(findEmail).Email}`);
+    
     
 
 };
 
+
     
     
 
 
- 
+
